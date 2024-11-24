@@ -1,0 +1,103 @@
+<style>
+    table, th, td, tr{
+        border: 1px solid black;
+    }
+    #button{
+        background-color: aquamarine;
+        width: 235px;
+    }
+    #deletebutton{
+        background-color: red;
+        width: 235px;
+    }
+    div{
+        display: flex;
+        justify-content: center;
+    }
+    select{
+        width: 177px;
+    }
+</style>
+
+<script>
+    function save(){
+        
+        var gname=document.getElementById("name").value
+        var gage=document.getElementById("age").value
+        var ggender=document.getElementById("gender").value
+        var gcourse=document.getElementById("course").value
+        var gemail=document.getElementById("email").value
+        var gaction=document.createElement("button")
+        
+        var table=document.getElementById("table2")
+        var row=table.insertRow(table.rows.length)
+        var name=row.insertCell(-1)
+        var age=row.insertCell(-1)
+        var gender=row.insertCell(-1)
+        var course=row.insertCell(-1)
+        var email=row.insertCell(-1)
+        var action=row.insertCell(-1)
+        
+        name.textContent=gname
+        age.textContent=gage
+        gender.textContent=ggender
+        course.textContent=gcourse
+        email.textContent=gemail
+        action.innerHTML="<button id='deletebutton' onclick='deleted(this)'>Delete</button>"
+
+    }
+
+    function deleted(button){
+        var row = button.parentNode.parentNode;  
+            row.parentNode.removeChild(row);
+    }
+
+</script>
+<h1 id="dummy"></h1>
+<div id="container">
+<table>
+    <tr>
+        <th>Name</th>
+        <td><input id="name" type="text" value="harshath"></td>
+    </tr>
+    <tr>
+        <th>Age</th>
+        <td><input type="number" id="age" value="10"></td>
+    </tr>
+    <tr>
+        <th>Gender</th>
+        <td><input type="radio" id="gender" name="gender" value="Male" checked>Male <input type="radio" id="gender" name="gender" value="Female">Female</td>
+    </tr>
+    <tr>
+        <th>Course</th>
+        <td>
+            <select id="course">
+                <option value="JS">JS</option>
+                <option value="CSS">CSS</option>
+                <option value="HTML">HTML</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <th>E-mail</th>
+        <td><input type="email" value="dummymama@123gmail.com" id="email"></td>
+    </tr>
+    <tr>
+        <td colspan="2"><button id="button" onclick="save()">Save</button></td>
+    </tr>
+</table>
+</div>
+<br>
+<div>
+<table id="table2">
+    <tr>
+        <th>NAME</th>
+        <th>AGE</th>
+        <th>GENDER</th>
+        <th>COURSE</th>
+        <th>EMAIL</th>
+        <th>ACTION</th>
+    </tr>
+</table>
+</div>
+
